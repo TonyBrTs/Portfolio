@@ -38,7 +38,7 @@ export default function Specialties() {
           className="mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-4">Skills</h2>
-          <div className="w-20 h-1 bg-primary" />
+          <div className="w-30 h-1 bg-primary" />
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
