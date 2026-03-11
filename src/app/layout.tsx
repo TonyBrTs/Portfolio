@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import ScrollWrapper from '@/components/ScrollWrapper';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <SmoothScrollManager />
         {children}
+        <ScrollWrapper />
       </body>
     </html>
   );
