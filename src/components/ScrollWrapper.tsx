@@ -79,7 +79,7 @@ export default function ScrollToTopPremium() {
             />
 
             {/* Progreso */}
-            <svg width={size} height={size} className="absolute rotate-[-90deg]">
+            <svg width={size} height={size} className="absolute -rotate-90">
               <defs>
                 <linearGradient id="scrollGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#3b82f6" />

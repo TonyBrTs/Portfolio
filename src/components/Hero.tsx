@@ -83,7 +83,7 @@ export default function Hero({ nombre }: HeroProps) {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <p className="font-mono text-[10px] md:text-xs text-primary uppercase tracking-[0.4em] font-bold bg-linear-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+          <p className="font-mono text-[10px] md:text-xs text-primary uppercase tracking-[0.4em] font-bold bg-linear-to-r from-primary to-purple-500 bg-clip-text">
             Software Engineer Portfolio
           </p>
         </motion.div>
@@ -130,7 +130,7 @@ export default function Hero({ nombre }: HeroProps) {
           </motion.div>
 
           {/* Isometric Visual */}
-          <div className="relative h-[600px] lg:h-[800px] flex items-center justify-center lg:justify-end">
+          <div className="relative h-150 lg:h-200 flex items-center justify-center lg:justify-end">
             <div className="isometric-layer relative scale-[0.6] md:scale-[0.8] lg:scale-[0.9] origin-center lg:origin-right transform-gpu">
               {/* Connection Paths SVG */}
               <svg

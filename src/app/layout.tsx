@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import ScrollWrapper from '@/components/ScrollWrapper';
+import SmoothScrollManager from '@/components/SmoothScrollManager';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -13,12 +14,20 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
 });
 
-import SmoothScrollManager from '@/components/SmoothScrollManager';
-
 export const metadata: Metadata = {
   title: 'Anthony | Software Engineer',
   description:
     'Senior Software Engineer Portfolio - Transforming complex logic into digital experiences.',
+  // Configuración de Favicons y Manifest
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({

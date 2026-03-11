@@ -91,7 +91,7 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.9, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 10 }}
               exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              className={`flex flex-col items-center gap-6 p-8 rounded-3xl border backdrop-blur-2xl shadow-2xl w-full max-w-[280px]
+              className={`flex flex-col items-center gap-6 p-8 rounded-3xl border backdrop-blur-2xl shadow-2xl w-full max-w-70
                 ${isDarkBg ? 'bg-black/80 border-white/10 text-white' : 'bg-white/90 border-black/10 text-black'}
               `}
             >

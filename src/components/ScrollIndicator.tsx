@@ -38,7 +38,7 @@ export default function ScrollIndicator() {
   }, [sections]);
 
   return (
-    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-[100] hidden md:flex flex-col gap-6">
+    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-100 hidden md:flex flex-col gap-6">
       {sections.map((sec) => {
         const isActive = activeSection === sec.id;
 
@@ -59,15 +59,15 @@ export default function ScrollIndicator() {
                   repeat: Infinity,
                   ease: 'easeOut',
                 }}
-                className="absolute inset-0 rounded-full bg-primary pointer-events-none"
+                className="absolute inset-0 rounded-full bg-linear-to-tr from-primary to-purple-500 pointer-events-none"
               />
             )}
 
             {/* PUNTO CENTRAL: Con transición suave de color */}
             <div
-              className={`w-2.5 h-2.5 rounded-full z-10 transition-colors duration-500
-                ${isActive ? 'bg-primary scale-110' : 'bg-foreground/20 hover:bg-foreground/40'}
-              `}
+              className={`w-2.5 h-2.5 rounded-full z-10 transition-all duration-500
+            ${isActive ? 'bg-linear-to-tr from-primary to-purple-500 scale-110' : 'bg-foreground/20 hover:bg-foreground/40'}
+          `}
             />
           </a>
         );
