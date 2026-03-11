@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
+  const mail = 'brts2461@gmail.com';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,13 +65,23 @@ export default function Navbar() {
         <div
           className={`flex gap-6 transition-colors ${isDarkBg ? 'text-white/40' : 'text-foreground/40'}`}
         >
-          <a href="#" className="hover:text-primary transition-colors">
+          <a
+            href="https://github.com/TonyBrTs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors"
+          >
             <Github size={18} />
           </a>
-          <a href="#" className="hover:text-primary transition-colors">
+          <a
+            href="https://www.linkedin.com/in/anthony-barrantes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors"
+          >
             <Linkedin size={18} />
           </a>
-          <a href="#" className="hover:text-primary transition-colors">
+          <a href={`mailto:${mail}`} className="hover:text-primary transition-colors">
             <Mail size={18} />
           </a>
         </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 interface HeroProps {
   nombre: string;
@@ -108,11 +108,25 @@ export default function Hero({ nombre }: HeroProps) {
             </motion.h1>
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-foreground/60 font-medium leading-relaxed max-w-md mb-0"
+              className="text-lg md:text-xl text-foreground/60 font-medium leading-relaxed max-w-md mb-8"
             >
               I transform complex logic into high-impact digital experiences through clean code and
               modern architecture.
             </motion.p>
+
+            {/* Buttons Area */}
+            <motion.div variants={itemVariants} className="flex gap-4">
+              <button
+                className="cursor-pointer hover:scale-110 bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all flex items-center gap-2 group shadow-lg shadow-primary/20 text-sm"
+                onClick={() => window.open('/CV_ANTHONY_BARRANTES.pdf', '_blank')}
+              >
+                Download CV{' '}
+                <Download size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="cursor-pointer border border-foreground/10 px-8 py-4 rounded-full font-bold hover:bg-foreground hover:text-white transition-all text-foreground/70 text-sm">
+                Contact
+              </button>
+            </motion.div>
           </motion.div>
 
           {/* Isometric Visual */}
@@ -272,26 +286,6 @@ export default function Hero({ nombre }: HeroProps) {
             </div>
           </div>
         </div>
-
-        {/* Buttons Area */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex gap-4"
-        >
-          <button className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all flex items-center gap-2 group shadow-lg shadow-primary/20 text-sm">
-            View Projects{' '}
-            <ArrowUpRight
-              size={18}
-              className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-            />
-          </button>
-          <button className="border border-foreground/10 px-8 py-4 rounded-full font-bold hover:bg-foreground hover:text-white transition-all text-foreground/70 text-sm">
-            Contact
-          </button>
-        </motion.div>
       </div>
 
       <style jsx>{`

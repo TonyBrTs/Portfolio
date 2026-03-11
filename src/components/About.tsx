@@ -39,32 +39,37 @@ export default function About() {
         <div className="absolute -bottom-[15%] left-[15%] w-[45%] h-[45%] bg-blue-400/10 rounded-full blur-[120px]" />
       </div>
 
-      <div className="max-w-4xl mx-auto relative z-10 text-center">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
+        }}
+        className="max-w-4xl mx-auto relative z-10 text-center"
+      >
         <motion.span
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           className="text-primary font-mono text-xs font-bold tracking-[0.4em] uppercase mb-8 block"
         >
           About Me
         </motion.span>
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           className="text-3xl md:text-5xl font-bold mb-12"
         >
           Committed to <span className="text-primary">Excellence</span> in Software Engineering.
         </motion.h2>
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           className="text-lg md:text-xl text-foreground/50 leading-relaxed font-medium"
         >
           I am a passionate software engineer focused on building high-performance systems and
           unforgettable digital experiences. My approach combines technical rigor with creative
           intuition to solve complex problems through clean, maintainable code.
         </motion.p>
-      </div>
+      </motion.div>
     </section>
   );
 }

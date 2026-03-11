@@ -1,4 +1,7 @@
+'use client';
+
 import Footer from '@/components/Footer';
+import { motion } from 'framer-motion';
 
 export default function Contact({ nombre }: { nombre: string }) {
   return (
@@ -22,9 +25,15 @@ export default function Contact({ nombre }: { nombre: string }) {
       </div>
 
       <div className="flex-1 flex items-center justify-center relative z-10">
-        <h2 className="text-4xl md:text-6xl font-bold bg-linear-to-r from-primary to-purple-500 bg-clip-text text-transparent px-6 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-bold bg-linear-to-r from-primary to-purple-500 bg-clip-text text-transparent px-6 text-center"
+        >
           Let&apos;s build something together.
-        </h2>
+        </motion.h2>
       </div>
       <Footer nombre={nombre} />
     </section>
