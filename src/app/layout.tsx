@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   title: 'Anthony | Software Engineer',
   description:
     'Senior Software Engineer Portfolio - Transforming complex logic into digital experiences.',
-  // Configuración de Favicons y Manifest
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },

@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 export default function Portfolio() {
   return (
     <section
@@ -12,12 +16,19 @@ export default function Portfolio() {
           backgroundSize: '48px 48px',
         }}
       />
-      {/* Glows similar to Home */}
       <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-primary/20 rounded-full blur-[160px] animate-pulse" />
       <div className="absolute top-[20%] -right-[10%] w-[55%] h-[55%] bg-purple-500/10 rounded-full blur-[160px]" />
       <div className="absolute -bottom-[15%] left-[15%] w-[45%] h-[45%] bg-blue-400/10 rounded-full blur-[120px]" />
 
-      <span className="relative z-10">Portfolio Section Coming Soon</span>
+      <motion.span 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10"
+      >
+        Portfolio Section Coming Soon
+      </motion.span>
     </section>
   );
 }

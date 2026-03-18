@@ -42,7 +42,6 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 z-50 w-full px-6 py-6 md:py-10 flex justify-center pointer-events-none">
-      {/* --- DESKTOP VERSION --- */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,7 +72,6 @@ export default function Navbar() {
         </div>
       </motion.div>
 
-      {/* --- MOBILE VERSION --- */}
       <div className="md:hidden flex flex-col items-end pointer-events-auto w-full">
         <motion.button
           onClick={() => setIsOpen(!isOpen)}

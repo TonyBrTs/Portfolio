@@ -9,7 +9,6 @@ export default function About() {
       className="h-screen w-full flex items-center justify-center px-6 md:px-24 bg-background relative overflow-hidden"
     >
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Subtle Grid dots */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -19,7 +18,6 @@ export default function About() {
           }}
         />
 
-        {/* Floating Shapes */}
         <motion.div
           animate={{ y: [0, 40, 0], x: [0, 20, 0], rotate: [0, 45, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
@@ -31,9 +29,7 @@ export default function About() {
           className="absolute bottom-[25%] right-[20%] w-24 h-24 border border-purple-400/10 rounded-full"
         />
 
-        {/* Subtle Background Text removed */}
 
-        {/* Glows similar to Home */}
         <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-primary/20 rounded-full blur-[160px] animate-pulse" />
         <div className="absolute top-[20%] -right-[10%] w-[55%] h-[55%] bg-purple-500/10 rounded-full blur-[160px]" />
         <div className="absolute -bottom-[15%] left-[15%] w-[45%] h-[45%] bg-blue-400/10 rounded-full blur-[120px]" />

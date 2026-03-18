@@ -8,26 +8,13 @@ interface HeroProps {
 }
 
 const PARTICLES = [
-  { duration: 3.2, delay: 0.5 },
-  { duration: 4.1, delay: 1.2 },
-  { duration: 3.7, delay: 2.8 },
-  { duration: 4.5, delay: 0.1 },
-  { duration: 3.1, delay: 3.4 },
-  { duration: 4.8, delay: 1.9 },
-  { duration: 3.4, delay: 4.2 },
-  { duration: 4.2, delay: 0.8 },
-  { duration: 3.9, delay: 2.3 },
-  { duration: 4.6, delay: 1.1 },
-  { duration: 3.3, delay: 3.7 },
-  { duration: 4.4, delay: 0.4 },
-  { duration: 3.8, delay: 2.6 },
-  { duration: 4.7, delay: 1.5 },
-  { duration: 3.5, delay: 4.1 },
-  { duration: 4.3, delay: 0.9 },
-  { duration: 4.0, delay: 2.1 },
-  { duration: 3.6, delay: 3.3 },
-  { duration: 4.9, delay: 0.6 },
-  { duration: 4.2, delay: 1.8 },
+  { duration: 3.2, delay: 0.5 }, { duration: 4.1, delay: 1.2 }, { duration: 3.7, delay: 2.8 },
+  { duration: 4.5, delay: 0.1 }, { duration: 3.1, delay: 3.4 }, { duration: 4.8, delay: 1.9 },
+  { duration: 3.4, delay: 4.2 }, { duration: 4.2, delay: 0.8 }, { duration: 3.9, delay: 2.3 },
+  { duration: 4.6, delay: 1.1 }, { duration: 3.3, delay: 3.7 }, { duration: 4.4, delay: 0.4 },
+  { duration: 3.8, delay: 2.6 }, { duration: 4.7, delay: 1.5 }, { duration: 3.5, delay: 4.1 },
+  { duration: 4.3, delay: 0.9 }, { duration: 4.0, delay: 2.1 }, { duration: 3.6, delay: 3.3 },
+  { duration: 4.9, delay: 0.6 }, { duration: 4.2, delay: 1.8 },
 ];
 
 export default function Hero({ nombre }: HeroProps) {
@@ -54,11 +41,9 @@ export default function Hero({ nombre }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full overflow-hidden font-sans bg-transparent"
+      className="relative min-h-screen w-full overflow-hidden font-sans bg-transparent flex flex-col"
     >
-      {/* BACKGROUND LAYER - Covers entire viewport width without being clipped by max-w-7xl */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Grid dots */}
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
@@ -67,16 +52,13 @@ export default function Hero({ nombre }: HeroProps) {
             backgroundSize: '48px 48px',
           }}
         />
-
-        {/* Glows */}
         <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-primary/20 rounded-full blur-[160px] animate-pulse" />
         <div className="absolute top-[20%] -right-[10%] w-[55%] h-[55%] bg-purple-500/10 rounded-full blur-[160px]" />
         <div className="absolute -bottom-[15%] left-[15%] w-[45%] h-[45%] bg-blue-400/10 rounded-full blur-[120px]" />
       </div>
 
-      {/* CONTENT LAYER - Centered and constrained to max-w-7xl */}
-      <div className="relative z-10 max-w-7xl mx-auto min-h-screen flex flex-col justify-between px-6 md:px-24 py-32">
-        {/* Top Area: Tagline */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-24 pt-32 pb-12">
+        
         <motion.div
           variants={itemVariants}
           initial="hidden"
@@ -88,8 +70,7 @@ export default function Hero({ nombre }: HeroProps) {
           </p>
         </motion.div>
 
-        {/* Main Content Area (Grid) */}
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 items-center w-full my-auto">
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center w-full mt-8">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -98,7 +79,7 @@ export default function Hero({ nombre }: HeroProps) {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6 tracking-tight"
+              className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight text-foreground mb-6 tracking-tight"
             >
               Hi, I&apos;m{' '}
               <span className="bg-linear-to-r from-primary to-purple-500 bg-clip-text text-transparent">
@@ -114,25 +95,25 @@ export default function Hero({ nombre }: HeroProps) {
               modern architecture.
             </motion.p>
 
-            {/* Buttons Area */}
-            <motion.div variants={itemVariants} className="flex gap-4">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 max-w-md"
+            >
               <button
-                className="cursor-pointer hover:scale-110 bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all flex items-center gap-2 group shadow-lg shadow-primary/20 text-sm"
+                className="cursor-pointer hover:scale-105 bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 group shadow-xl shadow-primary/30 text-base min-w-[170px]"
                 onClick={() => window.open('/CV_ANTHONY_BARRANTES.pdf', '_blank')}
               >
                 Download CV{' '}
-                <Download size={18} className="group-hover:translate-x-1 transition-transform" />
+                <Download size={20} className="group-hover:translate-y-1 transition-transform" />
               </button>
-              <button className="cursor-pointer border border-foreground/10 px-8 py-4 rounded-full font-bold hover:bg-foreground hover:text-white transition-all text-foreground/70 text-sm">
+              <button className="cursor-pointer border border-foreground/20 px-8 py-4 rounded-full font-bold hover:bg-foreground hover:text-white transition-all text-foreground text-base">
                 Contact
               </button>
             </motion.div>
           </motion.div>
 
-          {/* Isometric Visual */}
-          <div className="relative h-150 lg:h-200 flex items-center justify-center lg:justify-end">
-            <div className="isometric-layer relative scale-[0.6] md:scale-[0.8] lg:scale-[0.9] origin-center lg:origin-right transform-gpu">
-              {/* Connection Paths SVG */}
+          <div className="relative h-[400px] lg:h-[550px] flex items-center justify-center lg:justify-end mt-12 lg:mt-0">
+            <div className="isometric-layer relative scale-[0.55] md:scale-[0.75] lg:scale-[0.85] origin-center lg:origin-right transform-gpu">
               <svg
                 viewBox="0 0 600 800"
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] h-[180%] pointer-events-none overflow-visible"
@@ -194,7 +175,6 @@ export default function Hero({ nombre }: HeroProps) {
                 ))}
               </svg>
 
-              {/* Isometric Cards */}
               <motion.div
                 initial={{ x: -120, y: -100, opacity: 0 }}
                 animate={{ x: 0, y: 0, opacity: 1 }}
@@ -294,15 +274,9 @@ export default function Hero({ nombre }: HeroProps) {
           animation: shimmer 12s infinite linear;
         }
         @keyframes shimmer {
-          0% {
-            background-position: 0% 0%;
-          }
-          50% {
-            background-position: 100% 100%;
-          }
-          100% {
-            background-position: 0% 0%;
-          }
+          0% { background-position: 0% 0%; }
+          50% { background-position: 100% 100%; }
+          100% { background-position: 0% 0%; }
         }
       `}</style>
     </section>

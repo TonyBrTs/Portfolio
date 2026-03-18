@@ -9,13 +9,10 @@ export default function SmoothScrollManager() {
     const sectionIds = ['hero', 'about', 'skills', 'portfolio', 'contact'];
 
     const handleWheel = (e: WheelEvent) => {
-      // Prevent the default scroll behavior completely
       e.preventDefault();
 
-      // Ignore tiny events
       if (Math.abs(e.deltaY) < 10) return;
 
-      // If we are already animating a scroll, ignore new wheel events
       if (isScrolling.current) return;
 
       const sections = sectionIds
@@ -26,7 +23,6 @@ export default function SmoothScrollManager() {
 
       const direction = e.deltaY > 0 ? 1 : -1;
 
-      // Find currently visible section
       let currentIndex = 0;
       let minDistance = Infinity;
 
@@ -47,9 +43,7 @@ export default function SmoothScrollManager() {
 
         sections[nextIndex].scrollIntoView({ behavior: 'smooth' });
 
-        // Wait for the browser's smooth scroll animation to finish
-        // Standard smooth scrolling takes around 500-800ms
-        setTimeout(() => {
+      setTimeout(() => {
           isScrolling.current = false;
         }, 1000);
       }
@@ -57,7 +51,6 @@ export default function SmoothScrollManager() {
 
     window.addEventListener('wheel', handleWheel, { passive: false });
 
-    // Also support keyboard arrows for same clean effect
     const handleKeyDown = (e: KeyboardEvent) => {
       if (
         e.key === 'ArrowDown' ||

@@ -16,15 +16,12 @@ export default function Home() {
       <ScrollIndicator />
       <Navbar />
 
-      {/* Each component is a full-height snap target */}
       <Hero nombre={nombre} />
       <About />
       <Specialties />
 
-      {/* Placeholder for Portfolio */}
       <Portfolio />
 
-      {/* Contact Section (Footer) */}
       <Contact nombre={nombre} />
     </main>
   );

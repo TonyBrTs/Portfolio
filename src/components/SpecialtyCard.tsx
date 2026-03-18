@@ -7,7 +7,6 @@ interface SpecialtyCardProps {
   description: string;
   tags: string[];
   icon: React.ReactNode;
-  index: number;
 }
 
 export default function SpecialtyCard({
@@ -15,19 +14,17 @@ export default function SpecialtyCard({
   description,
   tags,
   icon,
-  index,
 }: SpecialtyCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.2 }}
-      viewport={{ once: true, amount: 0.2 }}
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+      }}
       whileHover={{
         y: -15,
         transition: { type: 'spring', stiffness: 300, damping: 20 },
       }}
-      animate={{ y: 0 }}
       className="bg-[#222] p-8 rounded-2xl border border-white/5 hover:border-primary/20 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group relative overflow-hidden shadow-sm hover:shadow-xl"
     >
       <div className="absolute top-0 right-0 p-4 opacity-[0.3] group-hover:opacity-80 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">

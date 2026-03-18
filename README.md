@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio
+
+A modern, responsive personal portfolio website built with Next.js, designed to showcase skills, projects, and professional experience in an interactive and visually appealing way.
+
+## Features
+
+- **Hero Section**: Eye-catching introduction with smooth animations
+- **About**: Personal background and information
+- **Specialties**: Highlighted skills and expertise areas
+- **Portfolio**: Showcase of projects and work samples
+- **Contact**: Easy way to get in touch
+- **Smooth Scrolling**: Enhanced user experience with scroll indicators and smooth navigation
+- **Responsive Design**: Optimized for all devices and screen sizes
+
+## Tech Stack
+
+- **Framework**: Next.js 16
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Linting**: ESLint
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js (version 18 or higher)
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the portfolio.
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+└── components/
+    ├── About.tsx
+    ├── Contact.tsx
+    ├── Footer.tsx
+    ├── Hero.tsx
+    ├── Navbar.tsx
+    ├── Portfolio.tsx
+    ├── ScrollIndicator.tsx
+    ├── ScrollWrapper.tsx
+    ├── SmoothScrollManager.tsx
+    ├── Specialties.tsx
+    └── SpecialtyCard.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Content**: Edit the components in `src/components/` to update personal information, projects, and styling
+- **Styling**: Modify `src/app/globals.css` for global styles or component-specific CSS
+- **Configuration**: Adjust Next.js settings in `next.config.ts`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build for Production
 
-## Learn More
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project can be easily deployed to platforms like Vercel, Netlify, or any static hosting service that supports Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For Vercel deployment:
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Feel free to fork this project and customize it for your own portfolio!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is open source and available under the [MIT License](LICENSE).

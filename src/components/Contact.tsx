@@ -9,7 +9,6 @@ export default function Contact({ nombre }: { nombre: string }) {
       id="contact"
       className="min-h-screen flex flex-col justify-end relative overflow-hidden bg-[#0a0a0b] text-white z-0"
     >
-      {/* Contact Background Decor */}
       <div className="absolute inset-0 z-0 pointer-events-none text-white overflow-hidden">
         <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-primary/30 rounded-full blur-[160px] animate-pulse mix-blend-screen" />
         <div className="absolute top-[20%] -right-[10%] w-[55%] h-[55%] bg-purple-500/20 rounded-full blur-[160px] mix-blend-screen" />

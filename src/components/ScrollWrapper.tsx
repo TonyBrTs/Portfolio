@@ -67,7 +67,6 @@ export default function ScrollToTopPremium() {
             className="relative flex items-center justify-center rounded-full cursor-pointer group outline-none"
             style={{ width: size, height: size }}
           >
-            {/* Fondo */}
             <div
               className={`absolute inset-0 rounded-full transition-all duration-300
               ${
@@ -78,7 +77,6 @@ export default function ScrollToTopPremium() {
               group-hover:scale-105`}
             />
 
-            {/* Progreso */}
             <svg width={size} height={size} className="absolute -rotate-90">
               <defs>
                 <linearGradient id="scrollGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -110,7 +108,6 @@ export default function ScrollToTopPremium() {
               />
             </svg>
 
-            {/* Icono */}
             <div className="absolute inset-0 flex items-center justify-center z-20">
               <ArrowUpFromDot
                 size={26}
