@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="h-screen w-full flex items-center justify-center px-6 md:px-24 bg-background relative overflow-hidden"
+      className="h-screen w-full flex items-center justify-center px-6 md:px-24 bg-white relative overflow-hidden"
     >
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div
@@ -30,9 +30,18 @@ export default function About() {
         />
 
 
-        <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-primary/20 rounded-full blur-[160px] animate-pulse" />
-        <div className="absolute top-[20%] -right-[10%] w-[55%] h-[55%] bg-purple-500/10 rounded-full blur-[160px]" />
-        <div className="absolute -bottom-[15%] left-[15%] w-[45%] h-[45%] bg-blue-400/10 rounded-full blur-[120px]" />
+        <motion.div 
+          animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -top-[10%] -left-[10%] w-[75%] h-[75%] bg-blue-600/30 rounded-full blur-[140px]" 
+          style={{ mixBlendMode: 'multiply' }}
+        />
+        <motion.div 
+          animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.5, 0.35] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          className="absolute top-[20%] right-[0%] w-[65%] h-[65%] bg-purple-500/25 rounded-full blur-[130px]" 
+          style={{ mixBlendMode: 'multiply' }}
+        />
       </div>
 
       <motion.div
