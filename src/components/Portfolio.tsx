@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import FloatingBackground from '@/components/FloatingBackground';
 
 export default function Portfolio() {
   return (
@@ -8,6 +9,7 @@ export default function Portfolio() {
       id="portfolio"
       className="h-screen w-full flex items-center justify-center bg-white text-foreground/10 uppercase font-mono tracking-[0.5em] text-sm relative overflow-hidden"
     >
+      <FloatingBackground />
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{

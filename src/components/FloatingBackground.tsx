@@ -31,7 +31,7 @@ export default function FloatingBackground() {
 
   useEffect(() => {
     // Generamos las figuras fuera del render cycle para evitar inconsistencias
-    const generatedFigures = [...Array(15)].map((_, i) => ({
+    const generatedFigures = [...Array(30)].map((_, i) => ({
       id: i,
       size: Math.random() * 15 + 10,
       left: `${Math.random() * 100}%`,
@@ -58,14 +58,14 @@ export default function FloatingBackground() {
       <motion.div 
         animate={{ scale: [1, 1.1, 1], opacity: [0.35, 0.5, 0.35] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] bg-blue-600/30 rounded-full blur-[120px]" 
+        className="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] bg-blue-600/40 rounded-full blur-[120px]" 
         style={{ mixBlendMode: 'multiply' }}
       />
 
       <motion.div 
         animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.45, 0.3] }}
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute top-[20%] -right-[5%] w-[60%] h-[60%] bg-purple-500/25 rounded-full blur-[110px]" 
+        className="absolute top-[20%] -right-[5%] w-[60%] h-[60%] bg-purple-500/45 rounded-full blur-[110px]" 
         style={{ mixBlendMode: 'multiply' }}
       />
 

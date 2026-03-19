@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import FloatingBackground from '@/components/FloatingBackground';
 
 export default function About() {
   return (
@@ -8,6 +9,7 @@ export default function About() {
       id="about"
       className="h-screen w-full flex items-center justify-center px-6 md:px-24 bg-white relative overflow-hidden"
     >
+      <FloatingBackground />
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
