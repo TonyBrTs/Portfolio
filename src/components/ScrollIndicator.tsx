@@ -51,6 +51,7 @@ export default function ScrollIndicator() {
             className="relative flex items-center justify-center w-4 h-4 group"
             aria-label={sec.label}
           >
+            {/* Label Tooltip */}
             <span
               className={`absolute right-6 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap translate-x-2 group-hover:translate-x-0
                 ${
@@ -63,29 +64,35 @@ export default function ScrollIndicator() {
               {sec.label}
             </span>
 
+            {/* --- ONDA ANIMADA CORREGIDA --- */}
             {isActive && (
               <motion.span
-                initial={{ scale: 1, opacity: 0.6 }}
-                animate={{ scale: 3, opacity: 0 }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: 'easeOut',
+                // Cambiamos initial opacity a 0 y usamos animate con keyframes
+                initial={{ scale: 1, opacity: 0 }}
+                animate={{ 
+                  scale: [1, 2.5], 
+                  opacity: [0, 0.5, 0] // Inicia en 0, sube a 0.5 y vuelve a 0
                 }}
-                className="absolute inset-0 rounded-full bg-linear-to-tr from-primary to-purple-500 pointer-events-none"
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'linear', // Linear suele sentirse más natural para ondas constantes
+                }}
+                className="absolute inset-0 rounded-full bg-linear-to-tr from-blue-600 to-purple-500 pointer-events-none"
               />
             )}
 
+            {/* Punto Central */}
             <div
               className={`w-2.5 h-2.5 rounded-full z-10 transition-all duration-500
-            ${
-              isActive
-                ? 'bg-linear-to-tr from-primary to-purple-500 scale-110'
-                : isDarkBg
-                ? 'bg-white/30 group-hover:bg-white/70'
-                : 'bg-black/20 group-hover:bg-black/50'
-            }
-          `}
+                ${
+                  isActive
+                    ? 'bg-linear-to-tr from-blue-600 to-purple-600 scale-110 shadow-[0_0_15px_rgba(37,99,235,0.4)]'
+                    : isDarkBg
+                    ? 'bg-white/30 group-hover:bg-white/70'
+                    : 'bg-black/20 group-hover:bg-black/50'
+                }
+              `}
             />
           </a>
         );
