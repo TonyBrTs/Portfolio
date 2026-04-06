@@ -31,7 +31,7 @@ export default function FloatingBackground() {
 
   useEffect(() => {
     // Generamos las figuras fuera del render cycle para evitar inconsistencias
-    const generatedFigures = [...Array(20)].map((_, i) => ({
+    const generatedFigures = [...Array(30)].map((_, i) => ({
       id: i,
       size: Math.random() * 15 + 10,
       left: `${Math.random() * 100}%`,
@@ -54,36 +54,24 @@ export default function FloatingBackground() {
   if (!mounted) return null;
 
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-      <motion.div 
-        animate={{ scale: [1, 1.1, 1], opacity: [0.35, 0.5, 0.35] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] bg-blue-600/40 rounded-full blur-[120px]" 
-        style={{ mixBlendMode: 'multiply' }}
-      />
-
-      <motion.div 
-        animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.45, 0.3] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute top-[20%] -right-[5%] w-[60%] h-[60%] bg-purple-500/45 rounded-full blur-[110px]" 
-        style={{ mixBlendMode: 'multiply' }}
-      />
+    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ perspective: "1000px" }}>
 
       {figures.map((fig) => {
         const FigureIcon = FIGURE_TYPES[fig.figureIndex];
         return (
           <motion.div
             key={fig.id}
-            className="absolute text-blue-600/20"
+            className="absolute text-blue-600/15"
             style={{ 
               width: fig.size, 
               height: fig.size, 
               left: fig.left, 
-              top: fig.top 
+              top: fig.top,
+              willChange: 'transform'
             }}
             animate={{ 
-              y: [0, -120, 0], 
-              x: [0, 40, 0],
+              y: [0, -100, 0], 
+              x: [0, 30, 0],
               rotate: [0, 360] 
             }}
             transition={{ 
@@ -93,7 +81,7 @@ export default function FloatingBackground() {
               delay: fig.delay 
             }}
           >
-            <FigureIcon className="w-full h-full" />
+            <FigureIcon className="w-full h-full drop-shadow-sm" />
           </motion.div>
         );
       })}

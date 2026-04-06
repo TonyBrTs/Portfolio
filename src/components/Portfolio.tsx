@@ -7,7 +7,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="h-screen w-full flex items-center justify-center bg-white text-foreground/10 uppercase font-mono tracking-[0.5em] text-sm relative overflow-hidden"
+      className="h-screen w-full flex items-center justify-center bg-transparent text-foreground/10 uppercase font-mono tracking-[0.5em] text-sm relative overflow-hidden"
     >
       <FloatingBackground />
       <div

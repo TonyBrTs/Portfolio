@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="h-screen w-full flex items-center justify-center px-6 md:px-24 bg-white relative overflow-hidden"
+      className="h-screen w-full flex items-center justify-center px-6 md:px-24 bg-transparent relative overflow-hidden"
     >
       <FloatingBackground />
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">

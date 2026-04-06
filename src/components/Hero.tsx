@@ -43,7 +43,7 @@ export default function Hero({ nombre }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full overflow-hidden font-sans bg-white flex flex-col"
+      className="relative min-h-screen w-full overflow-hidden font-sans bg-transparent flex flex-col"
     >
       <FloatingBackground />
 
