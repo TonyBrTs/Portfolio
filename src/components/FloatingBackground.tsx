@@ -31,7 +31,7 @@ export default function FloatingBackground() {
 
   useEffect(() => {
     // Generamos las figuras fuera del render cycle para evitar inconsistencias
-    const generatedFigures = [...Array(30)].map((_, i) => ({
+    const generatedFigures = [...Array(20)].map((_, i) => ({
       id: i,
       size: Math.random() * 15 + 10,
       left: `${Math.random() * 100}%`,
