@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -49,21 +49,50 @@ export default function Navbar() {
           ${isDarkBg ? 'bg-black/40 border-white/10' : 'bg-white/60 border-foreground/10 hover:bg-white/80'}
         `}
       >
-        <div className={`flex gap-8 text-[11px] font-bold uppercase tracking-[0.25em] transition-colors ${isDarkBg ? 'text-white/70' : 'text-foreground/70'}`}>
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="hover:text-primary transition-colors whitespace-nowrap">
-              {link.name}
-            </a>
-          ))}
+        <div
+          className={`flex gap-8 text-[11px] font-bold uppercase tracking-[0.25em] transition-colors ${isDarkBg ? 'text-white/70' : 'text-foreground/70'}`}
+        >
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`relative transition-colors whitespace-nowrap ${
+                  isActive ? 'text-primary' : 'hover:text-primary'
+                }`}
+              >
+                {link.name}
+                {isActive && (
+                  <motion.div
+                    layoutId="desktopActiveSectionIndicator"
+                    className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary rounded-full"
+                  />
+                )}
+              </a>
+            );
+          })}
         </div>
 
         <div className={`w-px h-5 ${isDarkBg ? 'bg-white/20' : 'bg-foreground/10'}`} />
 
-        <div className={`flex gap-6 transition-colors ${isDarkBg ? 'text-white/40' : 'text-foreground/40'}`}>
-          <a href="https://github.com/TonyBrTs" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+        <div
+          className={`flex gap-6 transition-colors ${isDarkBg ? 'text-white/40' : 'text-foreground/40'}`}
+        >
+          <a
+            href="https://github.com/TonyBrTs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors"
+          >
             <Github size={18} />
           </a>
-          <a href="https://www.linkedin.com/in/anthony-barrantes" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+          <a
+            href="https://www.linkedin.com/in/anthony-barrantes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors"
+          >
             <Linkedin size={18} />
           </a>
           <a href={`mailto:${mail}`} className="hover:text-primary transition-colors">
@@ -93,24 +122,42 @@ export default function Navbar() {
                 ${isDarkBg ? 'bg-black/80 border-white/10 text-white' : 'bg-white/90 border-black/10 text-black'}
               `}
             >
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-xs font-bold uppercase tracking-[0.3em] hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-              
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.substring(1);
+
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`relative text-xs font-bold uppercase tracking-[0.3em] transition-colors whitespace-nowrap ${
+                      isActive ? 'text-primary' : 'hover:text-primary'
+                    }`}
+                  >
+                    {link.name}
+
+                    {/* Indicador animado */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeSectionIndicator"
+                        className="absolute -bottom-2 left-0 right-0 h-[2px] bg-primary"
+                      />
+                    )}
+                  </a>
+                );
+              })}
+
               <div className={`h-px w-full ${isDarkBg ? 'bg-white/10' : 'bg-black/10'}`} />
-              
+
               <div className="flex gap-8 opacity-70">
                 <a href="https://github.com/TonyBrTs" target="_blank" rel="noopener noreferrer">
                   <Github size={20} />
                 </a>
-                <a href="https://www.linkedin.com/in/anthony-barrantes" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/anthony-barrantes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Linkedin size={20} />
                 </a>
                 <a href={`mailto:${mail}`}>

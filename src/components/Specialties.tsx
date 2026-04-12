@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code2, Database, Layers, Cloud, GitBranch, TestTube } from 'lucide-react';
+import { Code2, Database, Layers, Cloud, GitBranch, TestTube, Smartphone, Shield, Blocks } from 'lucide-react';
 import SpecialtyCard from './SpecialtyCard';
 
 export default function Specialties() {
@@ -101,6 +101,24 @@ export default function Specialties() {
             description="Comprehensive testing strategies to ensure reliable and bug-free applications."
             tags={['Jest', 'Cypress', 'Unit Testing', 'E2E Testing']}
             icon={<TestTube className="text-primary" size={32} />}
+          />
+          <SpecialtyCard
+            title="Mobile Development"
+            description="Cross-platform mobile application development with a focus on performance and usability."
+            tags={['React Native', 'Flutter', 'Mobile UI', 'App Publishing']}
+            icon={<Smartphone className="text-primary" size={32} />}
+          />
+          <SpecialtyCard
+            title="API Design & Integration"
+            description="Designing scalable REST and GraphQL APIs with seamless third-party integrations."
+            tags={['REST', 'GraphQL', 'WebSockets', 'Microservices']}
+            icon={<Blocks className="text-primary" size={32} />}
+          />
+          <SpecialtyCard
+            title="Security & Authentication"
+            description="Implementing robust security measures and authentication protocols to protect user data."
+            tags={['OAuth', 'JWT', 'Cryptography', 'OWASP']}
+            icon={<Shield className="text-primary" size={32} />}
           />
         </motion.div>
       </div>
