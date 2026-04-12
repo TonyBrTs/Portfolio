@@ -58,6 +58,11 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const elem = document.getElementById(link.href.substring(1));
+                  if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className={`relative transition-colors whitespace-nowrap ${
                   isActive ? 'text-primary' : 'hover:text-primary'
                 }`}
@@ -129,7 +134,12 @@ export default function Navbar() {
                   <a
                     key={link.name}
                     href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsOpen(false);
+                      const elem = document.getElementById(link.href.substring(1));
+                      if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+                    }}
                     className={`relative text-xs font-bold uppercase tracking-[0.3em] transition-colors whitespace-nowrap ${
                       isActive ? 'text-primary' : 'hover:text-primary'
                     }`}

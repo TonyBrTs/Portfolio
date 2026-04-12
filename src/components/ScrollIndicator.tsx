@@ -48,6 +48,11 @@ export default function ScrollIndicator() {
           <a
             key={sec.id}
             href={`#${sec.id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              const elem = document.getElementById(sec.id);
+              if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="relative flex items-center justify-center w-4 h-4 group"
             aria-label={sec.label}
           >
