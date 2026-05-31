@@ -54,25 +54,65 @@ body::after {
   z-index: -1;
 }
 
-/* Custom Scrollbar */
+/* Hide scrollbar for all browsers while maintaining scroll ability */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .isometric-layer {
   transform: rotateX(60deg) rotateZ(-45deg);
   transform-style: preserve-3d;
+}
+
+/* GPU Optimized Floating & Blurring Keyframe Animations */
+@keyframes float-particle {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(var(--float-x), var(--float-y), 0) rotate(180deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(360deg);
+  }
+}
+
+.animate-particle {
+  animation: float-particle var(--float-duration) infinite linear;
+  animation-delay: var(--float-delay);
+}
+
+@keyframes float-box {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(var(--float-x), var(--float-y), 0) rotate(var(--float-rot));
+  }
+}
+
+.animate-float-box {
+  animation: float-box var(--float-duration) infinite ease-in-out;
+  animation-delay: var(--float-delay, 0s);
+}
+
+@keyframes pulse-blur {
+  0%, 100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: var(--base-opacity);
+  }
+  50% {
+    transform: scale(1.08) translate3d(var(--pulse-x, 10px), var(--pulse-y, -10px), 0);
+    opacity: calc(var(--base-opacity) * 1.25);
+  }
+}
+
+.animate-pulse-blur {
+  animation: pulse-blur var(--pulse-duration) infinite ease-in-out;
+  animation-delay: var(--pulse-delay, 0s);
 }

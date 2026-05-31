@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { 
   Code, 
   Square, 
@@ -23,6 +22,8 @@ interface Figure {
   duration: number;
   delay: number;
   figureIndex: number;
+  floatX: number;
+  floatY: number;
 }
 
 export default function FloatingBackground() {
@@ -31,18 +32,19 @@ export default function FloatingBackground() {
 
   useEffect(() => {
     // Generamos las figuras fuera del render cycle para evitar inconsistencias
-    const generatedFigures = [...Array(30)].map((_, i) => ({
+    const generatedFigures = [...Array(12)].map((_, i) => ({
       id: i,
       size: Math.random() * 15 + 10,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
       duration: Math.random() * 20 + 25,
-      delay: Math.random() * 5,
+      delay: Math.random() * -25, // Delay negativo para que arranquen en estados intermedios
       figureIndex: Math.floor(Math.random() * FIGURE_TYPES.length),
+      floatX: Math.random() * 60 - 30,
+      floatY: Math.random() * -120 - 40,
     }));
     
-    // Usamos setTimeout(0) o requestAnimationFrame para mover el setState a la siguiente tarea 
-    // y evitar la advertencia de cascading renders en React 19/Next 
+    // Usamos requestAnimationFrame para evitar la advertencia de cascading renders
     const handle = requestAnimationFrame(() => {
       setFigures(generatedFigures);
       setMounted(true);
@@ -55,34 +57,25 @@ export default function FloatingBackground() {
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ perspective: "1000px" }}>
-
       {figures.map((fig) => {
         const FigureIcon = FIGURE_TYPES[fig.figureIndex];
         return (
-          <motion.div
+          <div
             key={fig.id}
-            className="absolute text-blue-600/15"
+            className="absolute text-blue-600/15 animate-particle"
             style={{ 
               width: fig.size, 
               height: fig.size, 
               left: fig.left, 
               top: fig.top,
-              willChange: 'transform'
-            }}
-            animate={{ 
-              y: [0, -100, 0], 
-              x: [0, 30, 0],
-              rotate: [0, 360] 
-            }}
-            transition={{ 
-              duration: fig.duration, 
-              repeat: Infinity, 
-              ease: "linear",
-              delay: fig.delay 
-            }}
+              '--float-x': `${fig.floatX}px`,
+              '--float-y': `${fig.floatY}px`,
+              '--float-duration': `${fig.duration}s`,
+              '--float-delay': `${fig.delay}s`,
+            } as React.CSSProperties}
           >
             <FigureIcon className="w-full h-full drop-shadow-sm" />
-          </motion.div>
+          </div>
         );
       })}
     </div>

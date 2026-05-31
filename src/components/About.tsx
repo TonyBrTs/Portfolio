@@ -21,29 +21,42 @@ export default function About() {
           }}
         />
 
-        <motion.div
-          animate={{ y: [0, 40, 0], x: [0, 20, 0], rotate: [0, 45, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-[15%] left-[15%] w-16 h-16 border border-primary/10 rounded-xl"
+        <div
+          className="absolute top-[15%] left-[15%] w-16 h-16 border border-primary/10 rounded-xl animate-float-box"
+          style={{
+            '--float-x': '20px',
+            '--float-y': '40px',
+            '--float-rot': '45deg',
+            '--float-duration': '12s',
+          } as React.CSSProperties}
         />
-        <motion.div
-          animate={{ y: [0, -30, 0], x: [0, -10, 0], rotate: [0, -20, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          className="absolute bottom-[25%] right-[20%] w-24 h-24 border border-purple-400/10 rounded-full"
+        <div
+          className="absolute bottom-[25%] right-[20%] w-24 h-24 border border-purple-400/10 rounded-full animate-float-box"
+          style={{
+            '--float-x': '-10px',
+            '--float-y': '-30px',
+            '--float-rot': '-20deg',
+            '--float-duration': '10s',
+            '--float-delay': '1s',
+          } as React.CSSProperties}
         />
 
-
-        <motion.div 
-          animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -top-[10%] -left-[10%] w-[75%] h-[75%] bg-blue-600/30 rounded-full blur-[140px]" 
-          style={{ mixBlendMode: 'multiply' }}
+        <div 
+          className="absolute -top-[10%] -left-[10%] w-[75%] h-[75%] bg-blue-600/30 rounded-full blur-[140px] animate-pulse-blur" 
+          style={{ 
+            mixBlendMode: 'multiply',
+            '--base-opacity': '0.4',
+            '--pulse-duration': '10s',
+          } as React.CSSProperties}
         />
-        <motion.div 
-          animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.5, 0.35] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          className="absolute top-[20%] right-[0%] w-[65%] h-[65%] bg-purple-500/25 rounded-full blur-[130px]" 
-          style={{ mixBlendMode: 'multiply' }}
+        <div 
+          className="absolute top-[20%] right-[0%] w-[65%] h-[65%] bg-purple-500/25 rounded-full blur-[130px] animate-pulse-blur" 
+          style={{ 
+            mixBlendMode: 'multiply',
+            '--base-opacity': '0.35',
+            '--pulse-duration': '12s',
+            '--pulse-delay': '1s',
+          } as React.CSSProperties}
         />
       </div>
 
