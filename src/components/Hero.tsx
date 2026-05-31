@@ -96,7 +96,7 @@ export default function Hero({ nombre }: HeroProps) {
                 Download CV{' '}
                 <Download size={20} className="group-hover:translate-y-1 transition-transform" />
               </button>
-              <button className="cursor-pointer bg-slate-200 border border-slate-300 px-8 py-4 rounded-full font-bold text-slate-950 hover:bg-slate-950 hover:text-white hover:scale-105 hover:border-slate-950 transition-all text-base shadow-sm hover:shadow-md">
+              <button className="cursor-pointer bg-slate-300/70 border border-slate-200 px-8 py-4 rounded-full font-bold text-slate-950 hover:bg-slate-950 hover:text-white hover:scale-105 hover:border-slate-950 transition-all text-base shadow-sm hover:shadow-md">
                 Contact
               </button>
             </motion.div>
