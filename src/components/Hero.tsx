@@ -4,7 +4,6 @@ import { motion, Variants } from 'framer-motion';
 import { Download } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { DotLottiePlayer } from '@dotlottie/react-player';
-import FloatingBackground from '@/components/FloatingBackground';
 
 interface HeroProps {
   nombre: string;
@@ -45,7 +44,6 @@ export default function Hero({ nombre }: HeroProps) {
       id="hero"
       className="relative min-h-screen w-full overflow-hidden font-sans bg-transparent flex flex-col"
     >
-      <FloatingBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-24 pt-32 pb-12">
         <motion.div
