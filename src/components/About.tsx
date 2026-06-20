@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="h-screen w-full flex items-center justify-center px-6 md:px-24 bg-transparent relative overflow-hidden"
+      className="min-h-screen py-24 lg:py-0 w-full flex items-center justify-center px-6 md:px-24 bg-transparent relative"
     >
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div

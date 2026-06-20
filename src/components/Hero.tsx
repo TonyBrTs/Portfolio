@@ -100,7 +100,7 @@ export default function Hero({ nombre }: HeroProps) {
             </motion.div>
           </motion.div>
 
-          <div className="relative h-100 lg:h-137.5 flex items-center justify-center lg:justify-end mt-12 lg:mt-0">
+          <div className="relative h-64 sm:h-80 md:h-96 lg:h-137.5 flex items-center justify-center lg:justify-end mt-12 lg:mt-0">
              <div className="w-full h-full flex items-center justify-center overflow-visible">
                 {mounted && (
                   <DotLottiePlayer
